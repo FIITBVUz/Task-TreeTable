@@ -1,5 +1,6 @@
 import { renderTreeTable } from './renderer';
-import { defaultTreeTable } from './tree';
+import { complexTreeTable, simpleTreeTable } from './tree';
+import { validateTable } from './validateTable';
 
 declare global {
     interface Window {
@@ -21,7 +22,7 @@ declare global {
     }
 }
 
-const treeTable = defaultTreeTable;
+const treeTable = simpleTreeTable;
 
 const addColumn = (colIndex: number) => {
 
@@ -29,6 +30,7 @@ const addColumn = (colIndex: number) => {
      * Magic is supposed to happen here...
      */
 
+    console.log('TreeTable updated: ', validateTable(treeTable));
     renderTreeTable('tree-table', treeTable);
 };
 
@@ -38,6 +40,7 @@ const addRow = (rowIndex: number) => {
      * Magic is supposed to happen here...
      */
 
+    console.log('TreeTable updated: ', validateTable(treeTable));
     renderTreeTable('tree-table', treeTable);
 };
 
